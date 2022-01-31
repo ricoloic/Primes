@@ -12,9 +12,8 @@ def is_prime(primes_array, number):
     if sn[len(sn) - 1] == '5':
         return False
     for j in range(0, len(primes_array)):
-        if primes_array[j][1] == 1:
-            if number % primes_array[j][0] == 0:
-                return False
+        if number % primes_array[j] == 0:
+            return False
     return True
 
 
@@ -32,9 +31,7 @@ def find_primes(start, end, prime_array):
         start = 2
     for i in range(start, end):
         if is_prime(prime_array, i):
-            prime_array.append([i, 1])
-        else:
-            prime_array.append([i, 0])
+            prime_array.append(i)
     return prime_array
 
 if __name__ == '__main__':
